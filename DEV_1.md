@@ -8,7 +8,7 @@
 |СЕМЕСТР|5 семестр, 2026/2027 уч. год|
 
 Ссылка на материал: <br>
-https://gitverse.ru/dgimatdinov/DevOps_2026/content/master/PR_1.md
+https://gitverse.ru/dgimatdinov/DevOps_2026/content/master/DEV_1.md
 ---
 
 # ПРАКТИЧЕСКОЕ ЗАНЯТИЕ №1
