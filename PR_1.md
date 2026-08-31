@@ -11,7 +11,7 @@
 https://gitverse.ru/dgimatdinov/DevOps_2026/content/master/PR_1.md
 ---
 
-# ПРАКТИЧЕСКАЯ РАБОТА №1
+# ПРАКТИЧЕСКОЕ ЗАНЯТИЕ №1
 ## Тема: Введение в DevOps. Установка и первичная настройка Git и GitHub
 
 **Дисциплина:** DevOps-практикум  
