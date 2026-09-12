@@ -81,7 +81,7 @@ feature:               D'──E' (новые коммиты)
 
 📖 **Для изучения:**
 - [Пожалуйста, перестаньте рекомендовать Git Flow (Хабр)](https://habr.com/ru/companies/flant/articles/491320/)
-- [Pro Git Book — Переписывание истории](https://git-scm.com/book/ru/v2/Инструменты-Git-Переписывание-истории)
+- [Pro Git Book — Переписывание истории](https://git-scm.com/book/ru/v2/Инструменты-Git-Перезапись-истории?spm=a2ty_o01.29997173.0.0.3f5455fb2AQpJJ)
 
 ### 2. Squash — объединение коммитов
 
@@ -846,7 +846,7 @@ git commit -m "chore: test git hook"
 
 | Тема | Ссылка |
 |---|---|
-| Pro Git Book (рус.) — Переписывание истории | [git-scm.com/book/ru/v2](https://git-scm.com/book/ru/v2/Инструменты-Git-Переписывание-истории) |
+| Pro Git Book (рус.) — Переписывание истории | [git-scm.com/book/ru/v2](https://git-scm.com/book/ru/v2/Инструменты-Git-Перезапись-истории?spm=a2ty_o01.29997173.0.0.3f5455fb2AQpJJ) |
 | Merge vs Rebase (Хабр) | [habr.com/ru/companies/flant/articles/491320](https://habr.com/ru/companies/flant/articles/491320/) |
 | Conventional Commits | [conventionalcommits.org/ru](https://www.conventionalcommits.org/ru/) |
 | GitLab Docs — SSH keys | [docs.gitlab.com/ee/user/ssh](https://docs.gitlab.com/ee/user/ssh.html) |
