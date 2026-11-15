@@ -35,5 +35,16 @@ check "Политика по умолчанию deny" "deny" "$(sudo ufw status 
 echo "[3] Учётные записи"
 awk -F: ' $3>=1000 && $3<65534 {printf " %s (uid=%s)\n",$1,$3}' /etc/passwd
 
+echo "[4] Веб-сервер"
+# б) конфигурация nginx синтаксически корректна
+check "Конфигурация Nginx корректна" "0" "$(sudo nginx -t >/dev/null 2>&1; echo $?)"
+
+# в) сертификат истекает не ранее чем через 30 дней (2592000 секунд)
+check "Сертификат действителен более 30 дней" "0" "$(sudo openssl x509 -checkend 2592000 -noout -in /etc/ssl/certs/devops.crt >/dev/null 2>&1; echo $?)"
+
+# г) нет файлов, доступных для записи всем, и права ключа 600
+check "Нет файлов с правом записи для всех" "" "$(sudo find /var/www/devops-site -perm -o+w)"
+check "Права ключа TLS равны 600" "600" "$(sudo stat -c '%a' /etc/ssl/private/devops.key)"
+
 echo "Пройдено: $PASS, не пройдено: $FAIL"
 [[ $FAIL -eq 0 ]] && exit 0 || exit 1
