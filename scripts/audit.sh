@@ -46,5 +46,20 @@ check "Сертификат действителен более 30 дней" "0"
 check "Нет файлов с правом записи для всех" "" "$(sudo find /var/www/devops-site -perm -o+w)"
 check "Права ключа TLS равны 600" "600" "$(sudo stat -c '%a' /etc/ssl/private/devops.key)"
 
+echo "[5] Контейнеризация"
+# а) служба docker активна
+check "Служба Docker активна" "active" "$(systemctl is-active docker)"
+
+# б) контейнер СУБД находится в состоянии healthy
+# (ищем по имени сервиса db, так как имя контейнера может меняться)
+check "СУБД в состоянии healthy" "healthy" "$(docker inspect -f '{{.State.Health.Status}}' $(docker compose --project-directory ~/app ps -q db))"
+
+# в) порты 5000 и 5432 не прослушиваются ни на одном адресе, кроме 127.0.0.1
+# (проверяем, что в выводе ss нет 0.0.0.0:5000 или *:5000)
+check "Порт приложения только на 127.0.0.1" "" "$(sudo ss -tlnp | grep -E ':(5000|5432)\b' | grep -v '127.0.0.1')"
+
+# г) права файла ~/app/.env равны 600
+check "Права файла .env равны 600" "600" "$(stat -c '%a' ~/app/.env)"
+
 echo "Пройдено: $PASS, не пройдено: $FAIL"
 [[ $FAIL -eq 0 ]] && exit 0 || exit 1
